@@ -67,45 +67,86 @@ var margin = {top: 30, right: 40, bottom: 20, left: 200},
 
 var dimensions = [
   {
-    name: "name",
+    name: "firm",
     scale: d3.scale.ordinal().rangePoints([0, height]),
     type: "string"
   },
   {
-    name: "economy (mpg)",
+    name: "y1-x1",
     scale: d3.scale.linear().range([0, height]),
     type: "number"
   },
   {
-    name: "cylinders",
+    name: "y2-x1",
     scale: d3.scale.linear().range([height, 0]),
     type: "number"
   },
   {
-    name: "displacement (cc)",
+    name: "y3-x1",
     scale: d3.scale.linear().range([height, 0]),
     type: "number"
   },
   {
-    name: "power (hp)",
+    name: "y1-x2",
     scale: d3.scale.linear().range([height, 0]),
     type: "number"
   },
   {
-    name: "weight (lb)",
+    name: "y2-x2",
     scale: d3.scale.linear().range([height, 0]),
     type: "number"
   },
   {
-    name: "0-60 mph (s)",
+    name: "y3-x2",
     scale: d3.scale.linear().range([height, 0]),
     type: "number"
   },
   {
-    name: "year",
+    name: "y1-x3",
     scale: d3.scale.linear().range([height, 0]),
     type: "number"
   },
+
+  {
+    name: "y2-x3",
+    scale: d3.scale.linear().range([height, 0]),
+    type: "number"
+  },
+  {
+    name: "y3-x3",
+    scale: d3.scale.linear().range([height, 0]),
+    type: "number"
+  },
+  {
+    name: "y1-x4",
+    scale: d3.scale.linear().range([height, 0]),
+    type: "number"
+  },
+  {
+    name: "y2-x4",
+    scale: d3.scale.linear().range([height, 0]),
+    type: "number"
+  },
+   {
+    name: "y3-x4",
+    scale: d3.scale.linear().range([height, 0]),
+    type: "number"
+  },   
+   {
+    name: "y1-x5",
+    scale: d3.scale.linear().range([height, 0]),
+    type: "number"
+  },  
+   {
+    name: "y2-x5",
+    scale: d3.scale.linear().range([height, 0]),
+    type: "number"
+  }, 
+   {
+    name: "y3-x5",
+    scale: d3.scale.linear().range([height, 0]),
+    type: "number"
+  },                
 ];
 
 var x = d3.scale.ordinal()
@@ -130,7 +171,7 @@ var dimension = svg.selectAll(".dimension")
     .attr("class", "dimension")
     .attr("transform", function(d) { return "translate(" + x(d.name) + ")"; });
 
-d3.csv("./files/cars.csv", function(data) {
+d3.csv("./files/output.csv", function(data) {
   dimensions.forEach(function(dimension) {
     dimension.scale.domain(dimension.type === "number"
         ? d3.extent(data, function(d) { return +d[dimension.name]; })
