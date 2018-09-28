@@ -149,6 +149,10 @@ var dimensions = [
   },                
 ];
 
+svg.append("text")
+    .style("font-size", "16px")   
+    .text("Efficiency by a firm")
+    
 var x = d3.scale.ordinal()
     .domain(dimensions.map(function(d) { return d.name; }))
     .rangePoints([0, width]);
@@ -171,9 +175,6 @@ var dimension = svg.selectAll(".dimension")
     .attr("class", "dimension")
     .attr("transform", function(d) { return "translate(" + x(d.name) + ")"; });
 
-svg.append("text")
-    .style("font-size", "16px")   
-    .text("Efficiency by a firm")
 
 d3.csv("./files/output.csv", function(data) {
   dimensions.forEach(function(dimension) {
