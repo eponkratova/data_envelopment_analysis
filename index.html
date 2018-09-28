@@ -36,14 +36,15 @@ svg {
 
 </style>
 <body>
-<script src="https://d3js.org/d3.v4.min.js"></script>
+<script src="https://d3js.org/d3.v3.min.js"></script>
 <script>
 
 var margin = {top: 30, right: 10, bottom: 10, left: 10},
     width = 960 - margin.left - margin.right,
     height = 500 - margin.top - margin.bottom;
 
-var x = d3.scalePoint().range([0, width], 1),
+'var x = d3.scalePoint().range([0, width], 1),'
+var x = d3.scale.ordinal().rangePoints([0, width], 1),
     y = {};
 
 var line = d3.line(),
@@ -61,7 +62,7 @@ d3.csv("cars.csv", function(error, cars) {
 
   // Extract the list of dimensions and create a scale for each.
   x.domain(dimensions = d3.keys(cars[0]).filter(function(d) {
-    return d != "name" && (y[d] = d3.scalePoint()
+    return d != "name" && (y[d] = d3.d3.scale.ordinal()
         .domain(d3.extent(cars, function(p) { return +p[d]; }))
         .range([height, 0]));
   }));
