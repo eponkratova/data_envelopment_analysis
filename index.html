@@ -163,16 +163,17 @@ var svg = d3.select("body").append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
   .append("g")
-    .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
-  .append("text")
-    .style("font-size", "16px")   
-    .text("Efficiency by a firm");    
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");    
 
 var dimension = svg.selectAll(".dimension")
     .data(dimensions)
   .enter().append("g")
     .attr("class", "dimension")
     .attr("transform", function(d) { return "translate(" + x(d.name) + ")"; });
+
+svg.append("text")
+    .style("font-size", "16px")   
+    .text("Efficiency by a firm")
 
 d3.csv("./files/output.csv", function(data) {
   dimensions.forEach(function(dimension) {
