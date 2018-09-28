@@ -1,5 +1,60 @@
-
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>Parallel Coordinates Ordinal Axis</title>
+<style>
+svg {
+  font: 12px sans-serif;
 }
+
+.background path {
+  fill: none;
+  stroke: none;
+  stroke-width: 20px;
+  pointer-events: stroke;
+}
+
+.foreground path {
+  fill: none;
+  stroke: steelblue;
+  stroke-width: 1.5px;
+}
+
+.axis .title {
+  font-size: 11px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.axis line,
+.axis path {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.axis.string {
+  font-size: 6px;
+}
+
+.label {
+  -webkit-transition: fill 125ms linear;
+}
+
+.active .label:not(.inactive) {
+  font-weight: bold;
+  font-size: 11px;
+}
+
+.label.inactive {
+  fill: #ccc;
+}
+
+.foreground path.inactive {
+  stroke: #ccc;
+  stroke-opacity: .5;
+  stroke-width: 1px;
+}
+
 
 </style>
 <body>
@@ -75,7 +130,7 @@ var dimension = svg.selectAll(".dimension")
     .attr("class", "dimension")
     .attr("transform", function(d) { return "translate(" + x(d.name) + ")"; });
 
-d3.csv("./files/cars.csv", function(data) {
+d3.csv("cars.small.csv", function(data) {
   dimensions.forEach(function(dimension) {
     dimension.scale.domain(dimension.type === "number"
         ? d3.extent(data, function(d) { return +d[dimension.name]; })
