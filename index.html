@@ -130,7 +130,7 @@ var dimension = svg.selectAll(".dimension")
     .attr("class", "dimension")
     .attr("transform", function(d) { return "translate(" + x(d.name) + ")"; });
 
-d3.csv("cars.small.csv", function(data) {
+d3.csv("./files/cars.csv", function(data) {
   dimensions.forEach(function(dimension) {
     dimension.scale.domain(dimension.type === "number"
         ? d3.extent(data, function(d) { return +d[dimension.name]; })
