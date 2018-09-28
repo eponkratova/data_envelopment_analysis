@@ -58,6 +58,9 @@ svg {
 
 </style>
 <body>
+
+    <h2>Firm efficiency</h2> 
+
 <script src="https://d3js.org/d3.v3.min.js"></script>
 <script>
 
@@ -149,10 +152,7 @@ var dimensions = [
   },                
 ];
 
-svg.append("text")
-    .style("font-size", "16px")   
-    .text("Efficiency by a firm")
-    
+
 var x = d3.scale.ordinal()
     .domain(dimensions.map(function(d) { return d.name; }))
     .rangePoints([0, width]);
@@ -168,6 +168,7 @@ var svg = d3.select("body").append("svg")
     .attr("height", height + margin.top + margin.bottom)
   .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");    
+
 
 var dimension = svg.selectAll(".dimension")
     .data(dimensions)
