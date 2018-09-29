@@ -74,8 +74,7 @@ var margin = {top: 30, right: 40, bottom: 20, left: 200},
 var dimensions = [
   {
     name: "firm",
-    scale: d3.scale.ordinal().rangePoints([0, height])
-      .domain(["1","2","3","4","5"]),
+    scale: d3.scale.ordinal().rangePoints([0, height]).domain(data.map(function (d) { return d.firm; }).sort(d3.ascending)),
     type: "string"
   },
   {
