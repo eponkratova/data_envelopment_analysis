@@ -1,7 +1,7 @@
 ---
 title: "Data Envelopment Analysis (DEA)"
 author: "EPonkratova"
-date: "December 28, 2018
+date: December 28, 2018
 ---
 ### Data Envelopment Analysis concepts
 The project was done to explore the optimiztion techniques, data envelopment analysis, in particular. 
