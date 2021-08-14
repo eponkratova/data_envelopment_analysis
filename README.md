@@ -13,3 +13,6 @@ The project was done to explore the optimiztion techniques, data envelopment ana
 The story behind the idea is @ https://medium.com/@eponkratova/whos-better-who-s-best-data-envelopment-analysis-a-non-mathematical-introduction-4986184f9ea3 (part 1), https://medium.com/@eponkratova/what-must-we-know-and-know-how-to-implement-and-interpret-data-envelopment-analysis-3517a6231be9 (part 2)
 
 The interactive visualization is available @ https://eponkratova.github.io/data_envelopment_analysis/
+
+
+<script src="https://gist.github.com/eponkratova/47c0bb05fd24b97d26dceb2f902ebc93.js"></script>
